@@ -1,0 +1,11 @@
+.galerie {
+  background-color: #F6F6F6;
+  width: 1240px;
+  margin: auto;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border-radius: 20px;
+}/*# sourceMappingURL=galerie.css.map */
