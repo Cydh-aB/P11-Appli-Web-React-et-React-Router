@@ -5,11 +5,15 @@ import BannerInfos from "../components/BannerInfos";
 import Footer from "../components/Footer";
 
 const StyleP = styled.p`
-padding-top: 39px;
 padding-bottom: 15px;
 margin-left: 35px;
 margin-right: 50px;
 color: #FF6060;
+`
+
+const StyleMain = styled.div `
+width: 85%;
+margin-left: 7%;
 `
 
 function Info() {
@@ -35,13 +39,13 @@ function Info() {
     return (
         <div>
             <BannerInfos />
-                <div>
+                <StyleMain>
                     {text.map((text, id) => (
                         <Accordeon key={id} title={text.title}>
                             {<StyleP id="contentP">{text.content}</StyleP>}
                         </Accordeon>
                     ))}
-                </div>
+                </StyleMain>
             <Footer />
         </div>
     )

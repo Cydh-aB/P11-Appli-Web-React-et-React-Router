@@ -5,11 +5,12 @@ import logements from "../Datas/logements.json"
 function Galerie(){
     return (
         <section className="galerie">
-            {logements.map((logement)=> (
+            {logements.map((logement, id)=> (
                 <Card 
                     key={logement.id}
                     picture={logement.cover}
                     title={logement.title}
+                    id={logement.id}
                 />
             ))}
         </section>

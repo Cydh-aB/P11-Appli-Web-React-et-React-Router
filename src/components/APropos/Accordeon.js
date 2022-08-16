@@ -12,9 +12,7 @@ flex-direction: row;
 justify-content: space-between;
 align-items: center;
 margin-top: 20px;
-margin-left: 7.5%;
 margin-bottom: 20px;
-width: 85%;
 height: 40%;
 border-radius: 10px;
 background-color: #FF6060;
@@ -36,8 +34,6 @@ cursor: pointer;
 
 const StyleContent = styled.div`
 position: relative;
-margin-left: 7.5%;
-width: 85%;
 margin-top: -35px;
 z-index: -1;
 height: auto;
@@ -45,6 +41,8 @@ font-size: 24px;
 color: ${settings.fontFamily};
 background-color: #F6F6F6;
 border-radius: 5px;
+padding-top: 1rem;
+padding-bottom: 2px;
 `
 
 function Accordeon({title, children}) {

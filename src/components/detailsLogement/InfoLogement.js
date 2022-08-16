@@ -5,17 +5,44 @@ import logements from "../../Datas/logements.json"
 import Accordeon from "../APropos/Accordeon";
 import styled from "styled-components";
 import settings from "../../styles/settings";
+import SliderImage from "./SliderImage";
+import LocationDetails from "./LocationDetails";
+
+
+let carousel = []
+let description = ""
+let equipements = ""
+let location = ""
+let title = ""
+let tags = ""
+let host = ""
+let rate = ""
+
 
 const StyleMain = styled.div`
+display: flex;
+flex-direction: row;
+justify-content: space-between;
 `
 const StyleCollapse = styled.div`
+width: 46%;
+color: ${settings.primary};
+
+.collapseLocation{
+    width:0;
+}
+
+p, ul{
+    margin-left:2rem;
+    margin-right: 2rem;
+    font-size: 18px;
+}
 `
-const StyleDetail = styled.div`
+const StyleUl = styled.ul`
+list-style-type: none;
+padding-left: 0;
 `
-const StyleRate = styled.div`
-`
-const StyleLocation = styled.div`
-`
+
 
 function InfoLogement() {
     const { id } = useParams()
@@ -24,8 +51,8 @@ function InfoLogement() {
     for(let i = 0; i<filterLogement.length; i++){
         carousel = filterLogement[i].pictures
         description = filterLogement[i].description
-        equipements = filterLogement[i].equipements
-        lieu = filterLogement[i].location
+        equipements = filterLogement[i].equipments
+        location = filterLogement[i].location
         title = filterLogement[i].title
         tags = filterLogement[i].tags
         host = filterLogement[i].host
@@ -33,30 +60,22 @@ function InfoLogement() {
     }
 
     return (
-        <div>
-            <div>
-                {carousel.map((img, index) => <img key={index} src={img} alt='Diaporama'/>)}
-            </div>
-            <StyleDetail className="details">
-                <StyleLocation>
-                    <div>
-                        {<h1>{title}</h1>}
-                        {<p>{lieu}</p>}
-                    </div>
-                </StyleLocation>
-                <StyleRate>
-                
-                </StyleRate>
-            </StyleDetail>
+        <>
+            <SliderImage slides={carousel} />
+            <LocationDetails details= {{title, location, tags, rate, host}}/>
             <StyleMain>
                 <StyleCollapse>
-                    <Accordeon></Accordeon>
+                    <Accordeon title='Description'>
+                        {<p>{description}</p>}
+                    </Accordeon>
                 </StyleCollapse>
                 <StyleCollapse>
-                    <Accordeon></Accordeon>
+                    <Accordeon title='Équipements'>
+                    {<StyleUl className='equipementsLocation'>{equipements.map((equipement, index) => <li key={index}>{equipement}</li>)}</StyleUl>}
+                    </Accordeon>
                 </StyleCollapse>
             </StyleMain>
-        </div>
+        </>
     )
 }
 
