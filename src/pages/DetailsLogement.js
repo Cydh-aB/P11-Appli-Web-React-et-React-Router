@@ -1,3 +1,15 @@
 import React from "react";
-import Footer from "../components/Footer";
+import InfoLogement from "../components/detailsLogement/InfoLogement";
+
+/*Page détail du logement*/
+
+function DetailLogement() {
+    return(
+        <>
+            <InfoLogement/>
+        </>
+    )
+}
+
+export default DetailLogement
 

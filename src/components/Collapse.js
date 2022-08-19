@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import settings from "../../styles/settings";
+import settings from "../styles/settings";
+
+/**_______Style_______**/
 
 const StyleCard = styled.div`
 margin-bottom: 37px;
@@ -45,17 +47,26 @@ padding-top: 1rem;
 padding-bottom: 2px;
 `
 
-function Accordeon({title, children}) {
+/**-------------------**/
+
+/*Composant fonctionnel Collapse*/
+
+function Collapse({title, children}) {
+    //Hook useState pour gérer l'état ouvert/fermé
     const [isOpen, setIsOpen] = useState(false)
+
+    //Gestion de la rotation de l'icone
     const rotate = isOpen ? 'rotate(180deg)' : 'rotate(0)'
     const rotation = { transform: rotate, transition: "0.5 ease-out"}
 
     return (
         <StyleCard>
+            {/*On ouvre le Dropdown au clic */}
             <StyleBox className="dropBox" onClick={(e) => {setIsOpen(!isOpen)}}>
                 <StyleTitle className="titleBox">{title}</StyleTitle>
                 <StyleVector className="vectorBox" style={rotation} src={`${process.env.PUBLIC_URL}/Vector(1).png`}  alt="dropdown"/>
             </StyleBox>
+            {/*Vérification, si le dropdown est ouvert on envoi les infos */}
             {isOpen && (
                 <StyleContent className="contentBox">
                     {children}
@@ -65,4 +76,4 @@ function Accordeon({title, children}) {
     )
 }
 
-export default Accordeon
+export default Collapse
