@@ -18,6 +18,8 @@ margin-left: 7%;
 `
 /**-------------------**/
 
+/**Composant Infos */
+
 function Infos() {
     const text = [
         {
