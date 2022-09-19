@@ -32,7 +32,7 @@ function App() {
           {/*Route Detail du logement*/}
           <Route path='/location/:id' element={<DetailLogement />}/>
           {/*Route Erreur 404*/}
-          <Route path='/*' element={<Error/>}/>
+          <Route path='*' element={<Error/>}/>
         </Routes>
       </BrowserRouter>
     </StyleApp>
